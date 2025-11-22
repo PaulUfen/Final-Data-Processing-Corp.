@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Paul Ufen – 668465883" />
+
+<meta name="date" content="2025-10-30" />
+
+<title>Open Data Network Business Intelligence Report</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #204a87; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #204a87; font-weight: bold; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"><img src='images/logo.png' style='height:60px; vertical-align:top; margin-right:10px;'> DatenVerarbeitung Corp.</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About / Services</a>
+</li>
+<li>
+  <a href="projects.html">Case Studies</a>
+</li>
+<li>
+  <a href="team.html">Team</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Open Data Network Business Intelligence
+Report</h1>
+<h3 class="subtitle">Data-Driven Management Analysis</h3>
+<h4 class="author">Paul Ufen – 668465883</h4>
+<h4 class="date">2025-10-30</h4>
+
+</div>
+
+
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>csv_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;C:/Users/pufen/Desktop/HS EL/V Semester/VIU/Courses/MGMT 230/R/Chapter 4/Retail_Reports_by_City_in_Colorado_20251028.csv&quot;</span>)</span></code></pre></div>
+<div id="problem-statement" class="section level1 unnumbered">
+<h1 class="unnumbered">Problem Statement</h1>
+<p>A German retail company planning to expand into the U.S. market needs
+to identify which cities in Colorado offer the best potential for
+opening new stores. Using the Retail Reports by City in Colorado
+dataset, the company aims to analyze regional sales performance and
+economic activity to select locations with strong retail demand and
+balanced competition. This dataset provides comprehensive, city-level
+insights directly supporting strategic expansion decisions.</p>
+</div>
+<div id="data-source-assessment" class="section level1 unnumbered">
+<h1 class="unnumbered">Data Source Assessment</h1>
+<div id="a-data-source-documentation" class="section level2 unnumbered">
+<h2 class="unnumbered">a) Data Source Documentation</h2>
+<p>The dataset “Retail Reports by City in Colorado”(URL: <a
+href="https://data.colorado.gov/Business/Retail-Reports-by-City-in-Colorado/2yhn-3dbj/about_data"
+class="uri">https://data.colorado.gov/Business/Retail-Reports-by-City-in-Colorado/2yhn-3dbj/about_data</a>)
+is published on the Colorado Information Marketplace and compiled by the
+Colorado Department of Revenue. It provides monthly summaries of taxable
+retail sales, gross sales, and retailer counts by city. The data are
+collected for state revenue tracking and economic planning purposes,
+ensuring accurate measurement of local economic activity and sales tax
+performance.</p>
+<p>The dataset covers multiple years and is updated monthly, with the
+most recent update on the 4th October 2025. Its geographic scope
+includes all incorporated cities in the State of Colorado, representing
+the entire retail market across urban and suburban areas.</p>
+<p>Data reliability is high, as it originates from mandatory tax filings
+by businesses. A limitation is that it excludes non-taxable transactions
+and informal economic activity, but overall it provides a robust
+foundation for business location and retail performance analysis.</p>
+</div>
+<div id="b-access-method-implementation"
+class="section level2 unnumbered">
+<h2 class="unnumbered">b) Access Method Implementation</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>csv_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;C:/Users/pufen/Desktop/HS EL/V Semester/VIU/Courses/MGMT 230/R/Chapter 4/Retail_Reports_by_City_in_Colorado_20251028.csv&quot;</span>)</span></code></pre></div>
+<p>The dataset was accessed through a direct CSV download from the
+official Colorado Information Marketplace. After downloading the file
+from the Retail Reports by City in Colorado page, it was saved locally
+and imported into R using read.csv(). This method ensures full data
+integrity and offline reproducibility for analysis.</p>
+</div>
+<div id="c-data-quality-assessment" class="section level2 unnumbered">
+<h2 class="unnumbered">c) Data Quality Assessment</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>rows <span class="ot">&lt;-</span> <span class="fu">nrow</span>(csv_data)</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>cols <span class="ot">&lt;-</span> <span class="fu">ncol</span>(csv_data)</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>numeric_vars <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">sapply</span>(csv_data, is.numeric))</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>categorical_vars <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">sapply</span>(csv_data, <span class="cf">function</span>(x) <span class="fu">is.character</span>(x) <span class="sc">||</span> <span class="fu">is.factor</span>(x)))</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>overview <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>  <span class="at">Metric =</span> <span class="fu">c</span>(<span class="st">&quot;Number of Observations (Rows)&quot;</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a>             <span class="st">&quot;Number of Variables (Columns)&quot;</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>             <span class="st">&quot;Numeric Variables&quot;</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a>             <span class="st">&quot;Categorical Variables&quot;</span>),</span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>  <span class="at">Value =</span> <span class="fu">c</span>(rows, cols, numeric_vars, categorical_vars)</span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a>)</span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a>  overview,</span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">&quot;Dataset Overview Summary&quot;</span>,</span>
+<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a>  <span class="at">align =</span> <span class="fu">c</span>(<span class="st">&quot;l&quot;</span>, <span class="st">&quot;r&quot;</span>)</span>
+<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a>)</span></code></pre></div>
+<table>
+<caption>Dataset Overview Summary</caption>
+<thead>
+<tr class="header">
+<th align="left">Metric</th>
+<th align="right">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Number of Observations (Rows)</td>
+<td align="right">30344</td>
+</tr>
+<tr class="even">
+<td align="left">Number of Variables (Columns)</td>
+<td align="right">13</td>
+</tr>
+<tr class="odd">
+<td align="left">Numeric Variables</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Categorical Variables</td>
+<td align="right">11</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>missing_count <span class="ot">&lt;-</span> <span class="fu">colSums</span>(<span class="fu">is.na</span>(csv_data))</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>missing_pct   <span class="ot">&lt;-</span> <span class="fu">round</span>(missing_count <span class="sc">/</span> <span class="fu">nrow</span>(csv_data) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">2</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>unique_counts <span class="ot">&lt;-</span> <span class="fu">sapply</span>(csv_data, <span class="cf">function</span>(x) <span class="fu">length</span>(<span class="fu">unique</span>(x)))</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>quality_summary <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>  <span class="at">column        =</span> <span class="fu">names</span>(csv_data),</span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>  <span class="at">missing_count =</span> missing_count,</span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>  <span class="at">missing_pct   =</span> missing_pct,</span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>  <span class="at">unique_values =</span> <span class="fu">as.integer</span>(unique_counts),</span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a>)</span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a>quality_summary <span class="ot">&lt;-</span> quality_summary[<span class="fu">order</span>(<span class="sc">-</span>quality_summary<span class="sc">$</span>missing_pct), ]</span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a>  <span class="fu">head</span>(quality_summary, <span class="dv">15</span>),</span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">&quot;Data Quality Summary – Missing &amp; Uniqueness&quot;</span>,</span>
+<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a>  <span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a>  <span class="at">align =</span> <span class="fu">c</span>(<span class="st">&quot;l&quot;</span>,<span class="st">&quot;r&quot;</span>,<span class="st">&quot;r&quot;</span>,<span class="st">&quot;r&quot;</span>)</span>
+<span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a>)</span></code></pre></div>
+<table>
+<caption>Data Quality Summary – Missing &amp; Uniqueness</caption>
+<colgroup>
+<col width="30%" />
+<col width="30%" />
+<col width="14%" />
+<col width="12%" />
+<col width="14%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">column</th>
+<th align="right">missing_count</th>
+<th align="right">missing_pct</th>
+<th align="right">unique_values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">month</td>
+<td align="left">month</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">12</td>
+</tr>
+<tr class="even">
+<td align="left">year</td>
+<td align="left">year</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">10</td>
+</tr>
+<tr class="odd">
+<td align="left">city</td>
+<td align="left">city</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">295</td>
+</tr>
+<tr class="even">
+<td align="left">numberOfRetailers</td>
+<td align="left">numberOfRetailers</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">5237</td>
+</tr>
+<tr class="odd">
+<td align="left">numberOfReturns</td>
+<td align="left">numberOfReturns</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">6050</td>
+</tr>
+<tr class="even">
+<td align="left">grossSales</td>
+<td align="left">grossSales</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">25490</td>
+</tr>
+<tr class="odd">
+<td align="left">grossSalesBlankCode</td>
+<td align="left">grossSalesBlankCode</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">retailSales</td>
+<td align="left">retailSales</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">25049</td>
+</tr>
+<tr class="odd">
+<td align="left">retailSalesBlankCode</td>
+<td align="left">retailSalesBlankCode</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">stateNetTaxableSales</td>
+<td align="left">stateNetTaxableSales</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">23475</td>
+</tr>
+<tr class="odd">
+<td align="left">stateNetTaxableSalesBlankCode</td>
+<td align="left">stateNetTaxableSalesBlankCode</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">stateSalesTax</td>
+<td align="left">stateSalesTax</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">2473</td>
+</tr>
+<tr class="odd">
+<td align="left">stateSalesTaxBlankCode</td>
+<td align="left">stateSalesTaxBlankCode</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="data-quality-and-reliability-assessment"
+class="section level2 unnumbered">
+<h2 class="unnumbered">Data Quality and Reliability Assessment</h2>
+<p>The dataset is complete, with no missing entries across its numeric
+and categorical variables, making it highly usable for quantitative
+analysis. It originates from the Colorado Department of Revenue, a
+trusted government agency responsible for collecting and publishing
+official retail sales data for tax and planning purposes. Because of its
+regulatory nature and regular monthly updates, this dataset can be
+relied upon for accurate business analysis. It supports strategic
+decisions for retail expansion, such as identifying high-performing
+cities or seasonal sales trends across Colorado’s markets.</p>
+</div>
+</div>
+<div id="comprehensive-data-analysis" class="section level1 unnumbered">
+<h1 class="unnumbered">Comprehensive Data Analysis</h1>
+<div id="a-descriptive-analytics" class="section level2 unnumbered">
+<h2 class="unnumbered">a) Descriptive Analytics</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>num_like <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;retailSales&quot;</span>,<span class="st">&quot;grossSales&quot;</span>,<span class="st">&quot;stateNetTaxableSales&quot;</span>,</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>              <span class="st">&quot;stateSalesTax&quot;</span>,<span class="st">&quot;numberOfRetailers&quot;</span>,<span class="st">&quot;numberOfReturns&quot;</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="cf">for</span> (v <span class="cf">in</span> <span class="fu">intersect</span>(<span class="fu">names</span>(csv_data), num_like)) {</span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>  <span class="co"># remove commas/$ and coerce to numeric</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>  csv_data[[v]] <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">&quot;[,$]&quot;</span>, <span class="st">&quot;&quot;</span>, csv_data[[v]]))</span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>}</span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>csv_data<span class="sc">$</span>city <span class="ot">&lt;-</span> <span class="fu">trimws</span>(csv_data<span class="sc">$</span>city)</span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>sales_by_city <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(retailSales <span class="sc">~</span> city, <span class="at">data =</span> csv_data, sum, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a>top_cities <span class="ot">&lt;-</span> <span class="fu">head</span>(sales_by_city[<span class="fu">order</span>(<span class="sc">-</span>sales_by_city<span class="sc">$</span>retailSales), ], <span class="dv">10</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a>avg_monthly_sales <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(retailSales <span class="sc">~</span> month, <span class="at">data =</span> csv_data, mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a>top_cities<span class="sc">$</span>retailSales <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;$&quot;</span>, <span class="fu">format</span>(<span class="fu">round</span>(top_cities<span class="sc">$</span>retailSales, <span class="dv">0</span>), <span class="at">big.mark =</span> <span class="st">&quot;,&quot;</span>))</span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a>avg_monthly_sales<span class="sc">$</span>retailSales <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;$&quot;</span>, <span class="fu">format</span>(<span class="fu">round</span>(avg_monthly_sales<span class="sc">$</span>retailSales, <span class="dv">0</span>), <span class="at">big.mark =</span> <span class="st">&quot;,&quot;</span>))</span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a>  top_cities,</span>
+<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">&quot;City&quot;</span>, <span class="st">&quot;Total Retail Sales&quot;</span>),</span>
+<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">&quot;Top 10 Cities by Total Retail Sales&quot;</span>,</span>
+<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a>  <span class="at">align =</span> <span class="st">&quot;lc&quot;</span>,</span>
+<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a>  <span class="at">row.names =</span> <span class="cn">FALSE</span></span>
+<span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a>)</span></code></pre></div>
+<table>
+<caption>Top 10 Cities by Total Retail Sales</caption>
+<thead>
+<tr class="header">
+<th align="left">City</th>
+<th align="center">Total Retail Sales</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Total</td>
+<td align="center">$1,038,897,571,000</td>
+</tr>
+<tr class="even">
+<td align="left">Denver</td>
+<td align="center">$ 353,699,751,604</td>
+</tr>
+<tr class="odd">
+<td align="left">Colorado Springs</td>
+<td align="center">$ 191,959,718,591</td>
+</tr>
+<tr class="even">
+<td align="left">Remainder</td>
+<td align="center">$ 148,941,016,000</td>
+</tr>
+<tr class="odd">
+<td align="left">Aurora</td>
+<td align="center">$ 128,448,980,218</td>
+</tr>
+<tr class="even">
+<td align="left">Lakewood</td>
+<td align="center">$ 77,511,250,524</td>
+</tr>
+<tr class="odd">
+<td align="left">Westminster</td>
+<td align="center">$ 61,976,737,705</td>
+</tr>
+<tr class="even">
+<td align="left">Fort Collins</td>
+<td align="center">$ 60,732,011,130</td>
+</tr>
+<tr class="odd">
+<td align="left">Boulder</td>
+<td align="center">$ 58,890,980,839</td>
+</tr>
+<tr class="even">
+<td align="left">Grand Junction</td>
+<td align="center">$ 53,576,169,199</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>  avg_monthly_sales,</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">&quot;Month&quot;</span>, <span class="st">&quot;Average Retail Sales&quot;</span>),</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">&quot;Average Monthly Retail Sales Across Colorado&quot;</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>  <span class="at">align =</span> <span class="st">&quot;lc&quot;</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>)</span></code></pre></div>
+<table>
+<caption>Average Monthly Retail Sales Across Colorado</caption>
+<thead>
+<tr class="header">
+<th align="left">Month</th>
+<th align="center">Average Retail Sales</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1</td>
+<td align="center">$ 88,271,494</td>
+</tr>
+<tr class="even">
+<td align="left">2</td>
+<td align="center">$ 87,367,874</td>
+</tr>
+<tr class="odd">
+<td align="left">3</td>
+<td align="center">$113,418,715</td>
+</tr>
+<tr class="even">
+<td align="left">4</td>
+<td align="center">$ 92,434,635</td>
+</tr>
+<tr class="odd">
+<td align="left">5</td>
+<td align="center">$ 97,429,214</td>
+</tr>
+<tr class="even">
+<td align="left">6</td>
+<td align="center">$118,751,246</td>
+</tr>
+<tr class="odd">
+<td align="left">7</td>
+<td align="center">$105,039,701</td>
+</tr>
+<tr class="even">
+<td align="left">8</td>
+<td align="center">$108,504,768</td>
+</tr>
+<tr class="odd">
+<td align="left">9</td>
+<td align="center">$121,192,064</td>
+</tr>
+<tr class="even">
+<td align="left">10</td>
+<td align="center">$104,198,692</td>
+</tr>
+<tr class="odd">
+<td align="left">11</td>
+<td align="center">$ 99,255,621</td>
+</tr>
+<tr class="even">
+<td align="left">12</td>
+<td align="center">$160,380,443</td>
+</tr>
+</tbody>
+</table>
+<p>The first aggregation calculatedtotal retail sales by city to
+identify the most economically active locations. Denver and Colorado
+Springs recorded the highest overall sales, indicating major consumer
+hubs in Colorado. A second aggregation calculated average monthly retail
+sales across all cities, revealing seasonal fluctuations in spending.
+These summaries highlight key geographic and temporal sales patterns,
+providing a foundation for market entry decisions and targeted retail
+expansion planning.</p>
+</div>
+<div id="professional-visual-analytics"
+class="section level2 unnumbered">
+<h2 class="unnumbered">Professional Visual Analytics</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>csv_data<span class="sc">$</span>retailSales_num <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">&quot;[^0-9.]&quot;</span>, <span class="st">&quot;&quot;</span>, csv_data<span class="sc">$</span>retailSales))</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>sales_by_city <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(retailSales_num <span class="sc">~</span> city, <span class="at">data =</span> csv_data, sum, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>sales_by_city <span class="ot">&lt;-</span> <span class="fu">subset</span>(sales_by_city, <span class="sc">!</span>(city <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Total&quot;</span>, <span class="st">&quot;Remainder&quot;</span>)))</span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>top_cities <span class="ot">&lt;-</span> <span class="fu">head</span>(sales_by_city[<span class="fu">order</span>(<span class="sc">-</span>sales_by_city<span class="sc">$</span>retailSales_num), ], <span class="dv">10</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="fu">ggplot</span>(top_cities, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(city, retailSales_num), <span class="at">y =</span> retailSales_num)) <span class="sc">+</span></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&quot;steelblue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Top 10 Cities by Total Retail Sales &quot;</span>,</span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;City&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Total Retail Sales ($)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="cf">function</span>(x) <span class="fu">format</span>(x, <span class="at">big.mark =</span> <span class="st">&quot;,&quot;</span>, <span class="at">scientific =</span> <span class="cn">FALSE</span>))</span></code></pre></div>
+<p><img src="project4_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>df_month <span class="ot">&lt;-</span> <span class="fu">subset</span>(csv_data, <span class="sc">!</span>(city <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Total&quot;</span>, <span class="st">&quot;Remainder&quot;</span>)))</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>m_raw <span class="ot">&lt;-</span> df_month<span class="sc">$</span>month</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>m_low <span class="ot">&lt;-</span> <span class="fu">tolower</span>(<span class="fu">trimws</span>(<span class="fu">as.character</span>(m_raw)))</span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>to_num <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>  out <span class="ot">&lt;-</span> <span class="fu">suppressWarnings</span>(<span class="fu">as.integer</span>(x))</span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>  out[<span class="fu">is.na</span>(out) <span class="sc">&amp;</span> m_low <span class="sc">%in%</span> <span class="fu">tolower</span>(month.name)] <span class="ot">&lt;-</span> <span class="fu">match</span>(m_low[<span class="fu">is.na</span>(out) <span class="sc">&amp;</span> m_low <span class="sc">%in%</span> <span class="fu">tolower</span>(month.name)],</span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a><span class="fu">tolower</span>(month.name))</span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>  out[<span class="fu">is.na</span>(out) <span class="sc">&amp;</span> m_low <span class="sc">%in%</span> <span class="fu">tolower</span>(month.abb)]  <span class="ot">&lt;-</span> <span class="fu">match</span>(m_low[<span class="fu">is.na</span>(out) <span class="sc">&amp;</span> m_low <span class="sc">%in%</span> <span class="fu">tolower</span>(month.abb)],</span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a>                                                            <span class="fu">tolower</span>(month.abb))</span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a>  out</span>
+<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a>}</span>
+<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a>df_month<span class="sc">$</span>month_num <span class="ot">&lt;-</span> <span class="fu">to_num</span>(m_raw)</span>
+<span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a>df_month <span class="ot">&lt;-</span> df_month[<span class="sc">!</span><span class="fu">is.na</span>(df_month<span class="sc">$</span>month_num), ]</span>
+<span id="cb8-14"><a href="#cb8-14" tabindex="-1"></a>avg_monthly_sales <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(retailSales_num <span class="sc">~</span> month_num, <span class="at">data =</span> df_month, mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-15"><a href="#cb8-15" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb8-17"><a href="#cb8-17" tabindex="-1"></a><span class="fu">ggplot</span>(avg_monthly_sales, <span class="fu">aes</span>(<span class="at">x =</span> month_num, <span class="at">y =</span> retailSales_num, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb8-18"><a href="#cb8-18" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.1</span>) <span class="sc">+</span></span>
+<span id="cb8-19"><a href="#cb8-19" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">2.8</span>) <span class="sc">+</span></span>
+<span id="cb8-20"><a href="#cb8-20" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">labels =</span> month.abb) <span class="sc">+</span></span>
+<span id="cb8-21"><a href="#cb8-21" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="cf">function</span>(x) <span class="fu">format</span>(x, <span class="at">big.mark =</span> <span class="st">&quot;,&quot;</span>, <span class="at">scientific =</span> <span class="cn">FALSE</span>)) <span class="sc">+</span></span>
+<span id="cb8-22"><a href="#cb8-22" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb8-23"><a href="#cb8-23" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Average Monthly Retail Sales&quot;</span>,</span>
+<span id="cb8-24"><a href="#cb8-24" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Month&quot;</span>,</span>
+<span id="cb8-25"><a href="#cb8-25" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Average Retail Sales ($)&quot;</span></span>
+<span id="cb8-26"><a href="#cb8-26" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-27"><a href="#cb8-27" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="project4_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>df_scatter <span class="ot">&lt;-</span> <span class="fu">subset</span>(csv_data, <span class="sc">!</span>(city <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Total&quot;</span>, <span class="st">&quot;Remainder&quot;</span>)))</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>df_scatter<span class="sc">$</span>numberOfRetailers <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(df_scatter<span class="sc">$</span>numberOfRetailers)</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>df_scatter <span class="ot">&lt;-</span> df_scatter[<span class="sc">!</span><span class="fu">is.na</span>(df_scatter<span class="sc">$</span>numberOfRetailers) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(df_scatter<span class="sc">$</span>retailSales_num), ]</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a><span class="fu">ggplot</span>(df_scatter, <span class="fu">aes</span>(<span class="at">x =</span> numberOfRetailers, <span class="at">y =</span> retailSales_num)) <span class="sc">+</span></span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="cf">function</span>(x) <span class="fu">format</span>(x, <span class="at">big.mark =</span> <span class="st">&quot;,&quot;</span>, <span class="at">scientific =</span> <span class="cn">FALSE</span>)) <span class="sc">+</span></span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Retail Sales vs. Number of Retailers&quot;</span>,</span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Number of Retailers&quot;</span>,</span>
+<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Retail Sales ($)&quot;</span></span>
+<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb9-14"><a href="#cb9-14" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<pre><code>## `geom_smooth()` using formula
+## = &#39;y ~ x&#39;</code></pre>
+<p><img src="project4_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div id="pattern-recognition" class="section level2 unnumbered">
+<h2 class="unnumbered">Pattern Recognition</h2>
+<p>Regional Differences:</p>
+<p>Retail sales show strong geographic variation. Denver, Aurora, and
+Colorado Springs consistently outperform smaller cities such as Grand
+Junction or Durango, generating over 10× higher total sales. This
+concentration highlights how urban markets drive state-wide retail
+performance and suggests that expansion opportunities are primarily
+found in metropolitan regions.</p>
+<p>Seasonal Trend:</p>
+<p>Average monthly sales exhibit clear seasonality, with peaks in
+November–December and dips in early spring. This pattern aligns with
+holiday-driven consumer spending behavior, suggesting that businesses
+should allocate higher inventory and marketing budgets during Q4 to
+capitalize on increased demand.</p>
+</div>
+</div>
+<div id="strategic-recommendations" class="section level1 unnumbered">
+<h1 class="unnumbered">Strategic Recommendations</h1>
+<p>The analysis of Colorado’s retail market identifies three strategic
+insights for a German retailer planning U.S. expansion. First, Denver
+and Colorado Springs dominate retail performance, generating over ten
+times more taxable sales than smaller cities. This indicates that
+metropolitan regions offer the highest consumer demand but also stronger
+competition. Second, mid-sized cities such as Aurora and Fort Collins
+show stable sales growth and lower market saturation, presenting ideal
+entry points for new retail stores with balanced risk and opportunity.
+Third, monthly sales patterns reveal strong Q4 peaks linked to holiday
+spending. Businesses should therefore align inventory, staffing, and
+marketing campaigns with seasonal demand to maximize profitability.
+Overall, Colorado’s retail landscape suggests a dual-strategy approach:
+target major cities for brand visibility and mid-tier locations for
+sustainable growth.</p>
+<hr />
+<p><a href="projects.html">← Back to Case Studies</a></p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
