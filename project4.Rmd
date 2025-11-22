@@ -29,7 +29,7 @@ Data reliability is high, as it originates from mandatory tax filings by busines
 
 ## b) Access Method Implementation{-}
 ```{r}
-csv_data <- read.csv("C:/Users/pufen/Desktop/HS EL/V Semester/VIU/Courses/MGMT 230/R/Chapter 4/Retail_Reports_by_City_in_Colorado_20251028.csv")
+csv_data <- read.csv(file.path("data", "Retail_Reports_by_City_in_Colorado_20251028.csv"), stringsAsFactors = FALSE)
 ```
 The dataset was accessed through a direct CSV download from the official Colorado Information Marketplace. After downloading the file from the Retail Reports by City in Colorado page, it was saved locally and imported into R using read.csv(). This method ensures full data integrity and offline reproducibility for analysis.
 
