@@ -1,0 +1,116 @@
+---
+title: "Business Insights Report"
+subtitle: "Data Visualization and Communication"
+author: "Paul Ufen -- 668465883"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    number_sections: true
+---
+# Data Preparation and Initial Analysis
+
+```{r setup, include=TRUE}
+
+library(ggplot2)
+
+business_data <- csv_data <- read.csv(file.path("data", "business_performance.csv"), stringsAsFactors = FALSE)
+
+```
+
+## a:
+```{r}
+str(business_data) 
+summary(business_data)
+```
+The variables quarter and channel are character data types.
+The revenue ranges from 150231  to 412125 .
+
+## b: 
+```{r}
+total_revenue_channel <- aggregate(revenue ~ channel, data = business_data, sum)
+top_channel <- total_revenue_channel[which.max(total_revenue_channel$revenue), ]
+top_channel
+```
+The Online channel generates the highest total revenue overall.
+```{r}
+avg_customers_quarter <- aggregate(customers ~ quarter, data = business_data, mean)
+top_quarter <- avg_customers_quarter[which.max(avg_customers_quarter$customers), ]
+top_quarter
+```
+Quarter 3 (Q3) has the highest average customer count.
+
+## c: 
+```{r}
+business_data$revenue_per_customer <- business_data$revenue / business_data$customers
+avg_rev_per_customer <- aggregate(revenue_per_customer ~ channel, data = business_data, mean)
+top_rev_channel <- avg_rev_per_customer[which.max(avg_rev_per_customer$revenue_per_customer), ]
+top_rev_channel
+
+```
+The Retail channel has the highest average revenue per customer, suggesting that each individual retail transaction tends to generate more value compared to the other channels. This may indicate that retail customers purchase higher-priced products or respond well to in-store strategies.
+
+# Creating Professional Charts
+
+## a:
+```{r}
+options(scipen = 999)
+channel_totals <- aggregate(revenue ~ channel, data = business_data, sum)
+ggplot(channel_totals, aes(x = channel, y = revenue)) +
+  geom_bar(stat = "identity") +
+  labs(
+    title = "Total Revenue by Channel",
+    x = "Sales Channel",
+    y = "Revenue ($)"
+  ) +
+  theme_minimal()
+```
+
+The bar chart shows that the Online channel generates the highest total revenue overall.
+Based on this finding, the company should consider investing more in the Online channel, for example, by expanding digital advertising or optimizing online promotions.
+
+## b:
+```{r}
+ggplot(business_data, aes(x = customers, y = revenue, color = channel)) +
+  geom_point(size = 3, alpha = 0.7)+
+  labs(
+    title = "Customer Count vs Revenue by Channel",
+    x = "Number of Customers",
+    y = "Revenue ($)"
+  ) +
+  theme_minimal()
+
+```
+
+The Retail channel appears most efficient at converting customers to revenue, it achieves high revenue levels with relatively fewer customers, suggesting that each retail customer generates more income on average.
+By contrast, the Online channel attracts larger customer volumes but generates less revenue per individual, indicating a high-volume, lower-margin model.
+This insight suggests that Retail offers higher-value transactions, while Online likely relies on scale and reach.
+
+# Action Plan {-}
+
+## Summary Table {-}
+```{r}
+total_revenue <- aggregate(revenue ~ channel, data = business_data, sum)
+avg_customers <- aggregate(customers ~ channel, data = business_data, mean)
+avg_conversion <- aggregate(conversion_rate ~ channel, data = business_data, mean)
+summary_table <- merge(total_revenue, avg_customers, by = "channel")
+summary_table <- merge(summary_table, avg_conversion, by = "channel")
+summary_table$customers <- round(summary_table$customers, 0)
+summary_table$conversion_rate <- round(summary_table$conversion_rate, 3)
+colnames(summary_table) <- c("Channel", "Total Revenue ($)", "Average Customers", "Avg. Conversion Rate (%)")
+knitr::kable(summary_table,
+            format.args = list(big.mark=",") )
+
+```
+
+## Strategic Recommendation Memo {-}
+
+Based on the analysis, the company should prioritize investment in the Online channel, which generated $5.57M in total revenue and reached the highest customer base (1,560).
+However, to improve profitability, management should enhance Retail’s high conversion rate (5.0%) through online integration or hybrid sales initiatives.
+Focusing on scaling Online operations while adopting Retail’s high-value approach could increase total revenue and efficiency across all channels.
+
+---
+
+[← Back to Case Studies](projects.html)

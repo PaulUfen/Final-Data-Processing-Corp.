@@ -1,0 +1,47 @@
+---
+title: "Case Studies"
+output:
+  html_document:
+    theme: cosmo
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+```
+## Case Study 1 — Colorado Retail Insights
+
+**Business Challenge:** Identify high-potential cities for retail expansion and plan inventory based on seasonal demand.
+**Dataset:** Colorado Department of Revenue — Retail Reports by City (monthly sales by location).  
+**Methods:** Data cleaning, aggregation by city, ranking by sales, seasonality visualization, and retailer–sales correlation.  
+**Key Skills:** aggregate(), ggplot2 visualizations (bar, line, scatter), data storytelling, and business recommendations.  
+**Outcome:** Denver and Aurora show the strongest growth potential. Q4 peaks suggest higher stock and staffing needs.  
+
+🔗 [View Full Analysis (HTML)](project4.html)
+
+---
+
+## Case Study 2 — Retail Trend Analysis
+
+**Business Challenge:** Explore multi-year sales and retailer trends across Colorado cities to uncover growth opportunities.  
+**Dataset:** Retail activity data, aggregated by month and location.  
+**Methods:** Trend analysis, time-series plotting, retailer-sales correlation.  
+**Key Skills:** Exploratory data analysis, ggplot2 trend visualization, statistical relationship checks.
+**Outcome:** Identified long-term upward sales trends in urban centers with high retailer density — indicating competition clusters.  
+
+🔗 [View Full Analysis (HTML)](project3.html)  
+
+---
+
+## Case Study 3 — Regional Financial Dynamics
+
+**Business Challenge:** Evaluate revenue performance and identify underperforming regions within a retail network.  
+**Dataset:** Financial performance reports (monthly KPIs and profit summaries).  
+**Methods:** Data cleaning, KPI comparison, visualization of performance variation.  
+**Key Skills:** Descriptive statistics, ggplot2 bar/line charts, business performance reporting.  
+**Outcome:** Smaller regions consistently underperformed due to low market exposure — reallocation of resources recommended.  
+
+🔗 [View Full Analysis (HTML)](project2.html)  
+
+---
+
+[← Back to Home](index.html)

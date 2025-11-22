@@ -1,0 +1,49 @@
+---
+title: "About & Services"
+---
+---
+title: "About Us"
+---
+
+## Who We Are
+We are a data-driven consulting company dedicated to helping **small and medium-sized enterprises** unlock the power of analytics.  
+Our mission is to make data-based decision-making accessible and understandable for every business — regardless of size or technical expertise.
+
+---
+
+## Our Mantra
+We aim to help small and medium-sized enterprises understand the vital importance of **data processing** in economic decision-making.  
+From **hands-on workshops** to **full-service consulting**, we provide customized solutions that support clients on their journey toward data-driven success.
+
+---
+
+## Our Motto
+> “Those who walk blindly will eventually stumble — in business, it’s no different!”
+
+Insight is the foundation of smart decisions.  
+We believe that success is achieved when every strategy, every plan, and every step is guided by clear, reliable data.
+
+---
+
+## Our Story
+- **October 2023:** Founded as a project initiative by *Paul Ufen* at the *University of Emden*  
+- **January 2024:** Expanded by hiring *Anton Ufen*, strengthening our expertise in *Auditing & Accounting*  
+- **June 2025:** Relocated to the *CoWorking Space Dornum* to foster innovation and collaboration  
+
+---
+
+## What We Offer
+- Data literacy workshops for business teams  
+- Custom analytics solutions and dashboards  
+- Continuous data management and strategic support  
+- Guidance in financial and operational data auditing  
+
+---
+
+## Our Vision
+To make data-driven thinking a standard practice for every company — enabling informed decisions, sustainable growth, and long-term success.
+
+---
+
+[← Back to Home](index.html)
+

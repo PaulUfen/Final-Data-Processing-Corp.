@@ -1,0 +1,24 @@
+name: "company-site"
+
+navbar:
+  title: "<img src='images/logo.png' style='height:60px; vertical-align:top; margin-right:10px;'> DatenVerarbeitung Corp."
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "About / Services"
+      href: about.html
+    - text: "Case Studies"
+      href: projects.html
+    - text: "Team"
+      href: team.html
+
+output:
+  html_document:
+    theme: cosmo
+    highlight: tango
+    toc: true
+    toc_float: true
+    css: "styles.css"
+
+output_dir: "docs"
+

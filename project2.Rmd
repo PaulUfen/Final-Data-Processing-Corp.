@@ -1,0 +1,189 @@
+---
+title: "Business Data Analysis Report"
+subtitle: "CSV Import and Data Cleaning"
+author: "Paul Ufen -- 668465883"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    number_sections: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Executive Summary {-}
+
+
+
+# Data Import and Exploration
+
+```{r}
+# Create sample regional sales data
+regional_sales <- data.frame(
+  region = c("North", "South", "East", "West", "North", "South", "East", "West",
+             "North", "South", "East", "West", "North", "South", "East", 
+             "North", "South","North"),  
+  quarter = c(rep(c("Q1", "Q2", "Q3", "Q4"), each = 4), "Q4", "Q4"),
+  revenue = c(125000, 98000, 115000, 102000, 
+              138000, 105000, 128000, 118000,
+              142000, 89000, 135000, 125000,
+              155000, 112000, 148000, 165000, 
+              120000, 91250),
+  customers = c(450, 380, 420, 395, 
+                485, 415, 465, 445,
+                520, 350, 485, 470,
+                575, 425, 545, 590, 435,324)
+)
+
+```
+
+## a: 
+```{r}
+str(regional_sales)
+
+```
+The data frame contains 18 observations and 4 variables. The variables region and quarter are of the type character, while revenue and customers are of the type numeric.
+
+## b:
+```{r}
+head(regional_sales)
+
+```
+```{r}
+summary(regional_sales)
+
+```
+The range of revenue values goes from $89,000 to $165,000.
+In the first few rows, the regions shown are North, South, East and West.
+
+## c:
+```{r}
+unique(regional_sales$region)
+unique(regional_sales$quarter)
+
+```
+The dataset contains 4 unique regions and 4 unique quarters.
+
+## d:
+```{r}
+(total_customers <- sum(regional_sales$customers, na.rm = TRUE))
+
+```
+The total number of customers across all regions and quarters is 8,674.This total represents the overall customer volume  served during the observed time period.
+It can serve as a baseline for tracking growth over time or comparing regional performances.
+
+# Data Quality Assessment
+
+## a:
+```{r}
+sum(is.na(regional_sales))
+```
+There are no missing values in the dataset.
+Checking for missing values is crucial in  business analytics because missing or incomplete data can lead to inaccurate insights and poor decisions.
+
+## b:
+```{r}
+table(regional_sales$region)
+table(regional_sales$quarter)
+```
+The data are not evenly distributed across either regions or quarters.This uneven distribution could indicate that some regions (North) have more recorded operations, sales events, or larger markets. Similarly, heavier data in Q4 might suggest seasonal effects.
+
+## c: 
+```{r}
+regional_sales[regional_sales$revenue < 90000, ]
+```
+The South region in Quarter 3 shows a revenue of $89,000, this low revenue might indicate issues such as weaker demand, regional economic factors, or operational inefficiencies.
+
+# Business Logic Analysis
+
+## a:
+```{r}
+regional_sales[regional_sales$revenue > 140000, ]
+nrow(regional_sales[regional_sales$revenue > 140000, ])
+```
+There are 4 high-performance records, mostly concentrated in the North region, particularly during Quarter 4.
+
+## b:
+```{r}
+(q4_high_perf <- regional_sales[
+  regional_sales$quarter == "Q4" & 
+    regional_sales$revenue > 130000 & 
+    regional_sales$customers > 500, ])
+```
+There are three Q4 records that meet both conditions:
+North region (2x), East region (1x). This combination indicates that during Quarter 4, the company experiences both high sales volumes and strong customer engagement. The concentration of these high-performance records in North and East regions suggests those areas may have more mature markets or better sales teams.
+
+## c:
+```{r}
+regional_sales[regional_sales$region == "North" | regional_sales$region == "East", ]
+
+mean(regional_sales$revenue[regional_sales$region == "North" | regional_sales$region == "East"])
+
+mean(regional_sales$revenue)
+
+```
+The North and East regions generate higher average revenue compared to the company’s overall average.
+This suggests these areas might represent stronger markets, more efficient operations, or higher customer demand.
+
+## d: 
+```{r}
+regional_sales$flag_underperform <- 
+  regional_sales$revenue < 100000 | regional_sales$customers < 400
+regional_sales[regional_sales$flag_underperform, ]
+sum(regional_sales$flag_underperform)
+nrow(regional_sales)
+(sum(regional_sales$flag_underperform) / nrow(regional_sales)) * 100
+```
+There are 4 underperforming records out of 18 total, representing 22.22% of the dataset.
+
+# Data Aggregation and Business Insights
+
+
+## a:
+```{r}
+aggregate(revenue ~ region, data = regional_sales, sum)
+```
+The North region generated the highest total revenue, with $816,250 CAD across all quarters.
+
+## b:
+```{r}
+aggregate(customers ~ quarter, data = regional_sales, mean)
+```
+Quarter 4 (Q4) shows the highest average customer count. This indicates that the company experiences increased customer engagement and activity during Q4, maybe through Seasonal demand surges (e.g., holiday shopping, year-end sales, or fiscal year-end purchasing).
+
+# Executive Summary {-}
+
+## Business Summary {-}
+
+```
+```{r}
+(avg_rev_per_quarter <- aggregate(revenue ~ quarter, data = regional_sales, mean))
+
+total_revenue <- sum(regional_sales$revenue)
+
+avg_revenue_quarter <- aggregate(revenue ~ quarter, data = regional_sales, mean)
+
+high_perf_count <- nrow(regional_sales[regional_sales$revenue > 140000, ])
+
+( summary_table <- list(
+  "Total Revenue (All Regions & Quarters)" = total_revenue,
+  "Average Revenue per Quarter" = avg_revenue_quarter,
+  "High-Performance Records (Revenue > 140,000)" = high_perf_count
+))
+
+
+```
+
+## Business Recommendation {-}
+The North region demonstrates the most consistent performance, generating the highest total revenue of approximately $816,250 CAD across all quarters.
+Meanwhile, Quarter 4 (Q4) consistently shows the strongest results, with an average revenue of about $151,000 CAD and the highest average customer count (around 502).
+These trends indicate that the company experiences a seasonal sales peak in Q4. The company should continue investing in the North region and Q4 strategies to sustain and amplify growth.
+
+---
+
+[← Back to Case Studies](projects.html)

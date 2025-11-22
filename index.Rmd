@@ -1,0 +1,51 @@
+---
+title: "Welcome to DatenVerarbeitung Corp."
+output:
+  html_document:
+    theme: cosmo
+---
+
+## Turning Data into Direction.
+
+Welcome to **DatenVerarbeitung Corp.** your partner for data-driven business solutions.  
+We help small and medium-sized enterprises unlock the power of their business data through workshops, audits, and continuous analytics support.
+
+---
+
+## What We Do
+We transform data into clear business insights through:
+
+- **Workshops & Training:** Building data literacy for leaders and teams  
+- **KPI Frameworks:** Designing metrics that actually drive performance  
+- **Auditing & Accounting Support:** Integrating financial insights into decision-making  
+- **Ongoing Data Consulting:** Continuous analytics partnership and dashboard development  
+
+[Learn more about us and our services →](about.html)
+
+---
+
+## Meet the Team
+Our consultants bring experience from data analytics, auditing, and business strategy, combining technical expertise with real-world understanding.
+
+[Meet our team →](team.html)
+
+---
+
+## Case Studies
+Discover how we’ve helped organizations optimize decisions, improve efficiency, and gain financial clarity through data.
+
+[See examples →](projects.html)
+
+---
+
+##  Get in Touch
+Interested in improving your business through better data?
+
+📧 **Email:** [contact@datenverarbeitung-corp.com](mailto:contact@datenverarbeitung-corp.com)  
+🌍 **Location:** Dornum, Germany  
+📞 **Phone:** +49 987654321  
+
+---
+
+> *“Whoever walks through business blindly will eventually fall — data keeps you on track.”*  
+> — **Company Motto**

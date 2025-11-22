@@ -1,0 +1,61 @@
+---
+title: "Our Team"
+output:
+  html_document:
+    theme: cosmo
+---
+
+
+Our company brings together a passionate team of data-driven professionals, each contributing unique skills and experience to help businesses embrace digital transformation and smart decision-making.
+
+---
+
+### **Paul Ufen**  
+*![](images/paul.jpg){width=200px}`*  
+**Role:** Owner / Senior Consultant – Data Awareness  
+**Responsibilities:** Strategic data consulting, business analytics, client workshops  
+**Key Skills:** Data visualization, R Markdown, data literacy training  
+**Education:** Bachelor of International Business Administation  
+**Languages:** English (C1), German (Native), Spanish (B1)  
+**Contact:** [Email](mailto:paul@example.com) | [LinkedIn](https://linkedin.com/in/your-link)  
+
+
+---
+
+### **Jens Zirr**  
+*![](images/jens.jpg){width=200px}`*  
+**Role:** Customer Relationship  
+**Responsibilities:** Client support, onboarding, communication management  
+**Key Skills:** CRM tools, business communication  
+**Education:** Diploma in Electrical Engineering  
+**Languages:** English (B2), German (Native)  
+**Contact:** [Email](mailto:jens@example.com) | [LinkedIn](https://linkedin.com/in/your-link)  
+
+
+---
+
+### **Edda Ufen**  
+*![](images/edda.jpg){width=200px}`*  
+**Role:** Human Resources  
+**Responsibilities:** Recruitment, internal coordination, training management  
+**Key Skills:** People management, organizational planning, HR analytics  
+**Education:** Bachelor of Arts in Social Pedagogy  
+**Languages:** English (B2), German (Native)  
+**Contact:** [Email](mailto:edda@example.com) | [LinkedIn](https://linkedin.com/in/your-link)  
+
+
+---
+
+### **Anton Ufen**  
+*![](images/anton.jpg){width=200px}`*  
+**Role:** Junior Consultant – Auditing & Accounting  
+**Responsibilities:** Data validation, financial reporting, auditing support  
+**Key Skills:** Excel / Power Query, R (tidyverse), accounting fundamentals  
+**Education:** Junior Tax Consultant  
+**Languages:**  English (C1), German (Native)  
+**Contact:** [Email](mailto:anton@example.com) | [LinkedIn](https://linkedin.com/in/your-link)  
+
+---
+
+[← Back to Home](index.html)
+

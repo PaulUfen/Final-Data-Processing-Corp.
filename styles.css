@@ -1,0 +1,14 @@
+.navbar-brand img {
+  height: 40px;
+  vertical-align: middle;
+  margin-top: -15px;  
+  margin-right: 10px;
+  border-radius: 6px;
+}
+
+@media (max-width: 768px) {
+  .navbar-brand img {
+    height: 28px;     /* Logo etwas kleiner */
+    margin-top: -3px; /* leicht anheben */
+  }
+}
